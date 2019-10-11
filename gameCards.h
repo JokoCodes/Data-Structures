@@ -1,51 +1,64 @@
 #ifndef GAMECARDS_H
 #define GAMECARDS_H
 
-
-class gameCards
-{
-    public:
-        gameCards(){ //contructor initializing the class
-        cardVal= 0;
-        }
-        virtual ~gameCards();
-
-    const char* getSuit(){
-        cardSuit suit;
-        switch(suit){
-            case ACE: return "Ace";
-            case SPADE: return "Spade";
-            case DIAMOND: return "Diamond";
-            case HEARTS: return "Hearts";
-        }
-        return "Error";
-    }
-    void Card(string s, int value);
-
-    protected:
-
-    private:
-    enum cardSuit{
-        ACE,
-        SPADE,
-        DIAMOND,
-        HEARTS,
-    };
-    int cardVal;
+enum suit_t {
+	HEARTS,
+	SPADES,
+	DIAMONDS,
+	CLUBS
 };
 
-void Card(string s, int value){
 
-    int l = 0;
-    for(int i=0; i<13; i++){ //determines cardVal
+class Card
+{
+public:
+	Card() { //contructor initializing the class
+		cardVal = 0;
+	}
 
-        for(int j= 0; j <4; j++){ //determines Card Suite
+	Card(int rank) {
+		cardVal = rank;
+	}
 
-        }
+	virtual ~Card() {
 
-    }
+	}
 
+	/*void Values(int value) {
+		int l = 0;
+		for (int i = 0; i < 13; i++) { //determines cardVal
 
-}
+		}
+	}
+	*/
+	int GetRank() {
+		return cardVal;
+	}
 
-#endif // GAMECARDS_H
+protected:
+
+private:
+
+	int cardVal;
+};
+
+class Deck 
+{
+public:
+	Card GetCard(int index) {
+
+	}
+private:
+	void init_deck() {
+		int pos = 0;
+		for (int s = 0; s < 4; s++) {
+			for (int rank = 1; rank <= 13; rank++)
+			{
+				m_deck.push_back(Card((suit_t)s, rank));
+				pos++;
+			}
+		}
+	}
+	std::vector<Card> deck;
+};
+#endif //GAMECARDS_H
