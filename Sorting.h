@@ -21,6 +21,27 @@ public:
 		return x;
 	}
 */
+     void display() {
+		for (int i = 0; i < x.size() - 1; i++) {
+			std::cout << x.at(i) << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	bool isGood() {
+
+	for(int j=0; j<x.size()-1; j++){
+        if(x.at(j)< x.at(j+1)){
+            sorted = true;
+        }
+        else{
+            sorted = false;
+        }
+	}
+
+	return sorted;
+	}
+
 	std::vector <int> BubbleSort() {
 		//while (sorted == false) {
 			int i = 0;
@@ -102,36 +123,41 @@ public:
 
     std::vector<int> insertionSort(){
 
+
     int i = 0;
-    while(i < x.size()-1){
+    while( !isGood() || i <= x.size()-1 ){
     for(; i < x.size()-1; i++ ){
 
         if(x.at(i+1) < x.at(i)){
 
-            x.at(i) = x.at(i+1);
-            i++;
+            std::swap(x.at(i+1), x.at(i));
+        }
+        else if(x.at(i) > x.at(i+1)){
+            std::swap(x.at(i), x.at(i+1));
         }
         else{
-
+            x.at(i) = x.at(i);
         }
     }
+
+    for (int i = 0; i < x.size() - 1; i++) {
+			std::cout<< x.at(i) << " ";
+		}
+		std::cout << std::endl;
     }
 
     return x;
     }
 
-	void display() {
-		for (int i = 0; i < x.size() - 1; i++) {
-			std::cout << x.at(i) << " ";
-		}
-		std::cout << std::endl;
-	}
+
 
 private:
-	std::vector <int> x = {9, 20, 40 ,2, 7, 15, 10, 3, 18, 13};
-
-	bool sorted = false;
+	std::vector <int> x = {20, 9, 40 ,2, 7, 15, 10, 3, 18, 13};
+    bool sorted = false;
 };
+
+
+
 
 
 
