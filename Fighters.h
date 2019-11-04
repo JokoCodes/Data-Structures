@@ -1,31 +1,45 @@
 #pragma once
 
-#include "Iship.h"
+
+#include "IClass.h"
 #include "IRace.h"
 
-class Fighters : public Iship
+class Fighter :
+	public IClass
 {
 public:
 
-	Fighters(IRace* race) : Iship(race)
+	Fighter(IRace* race) : IClass(race)
 	{
-        m_hitPointMod = 10;
-        m_ArmorClassMod = 10;
-        m_HitBonusMod = 2;
-        HP = 150;
-        AC = 20;
+		//	m_hitPointMod = 10;
+		//	m_ArmorClassMod = 10;
+		//	m_HitBonusMod = 2;
+		m_HP = 200;
+		m_AC = 20;
+		m_Damage = 20;
 	}
 
-    ~Fighters() {}
+	~Fighter() {}
 
-	virtual int GetHullPoints() override
+	virtual int GetHP() override
 	{
-		int retVal = m_hull + m_race->GetHullPointMods();
+		int retVal = m_HP + m_race->GetHPMod();
 		return retVal;
 	}
 
-private :
-    Fighters();
+	virtual int GetAC() override
+	{
+		int retVal = m_AC + m_race->GetACMod();
+		return retVal;
+	}
+
+	virtual int GetHitBonus() override
+	{
+		int retVal = m_hitBonus + m_race->GetHitBonusMod();
+		return retVal;
+	}
+
+private:
+	Fighter();
 
 };
-

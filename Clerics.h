@@ -1,31 +1,45 @@
 #pragma once
 
-#include "Iship.h"
+
+#include "IClass.h"
 #include "IRace.h"
 
-class Clerics : public Iship
+class Cleric : 
+	public IClass
 {
 public:
 
-	Clerics(IRace* race) : Iship(race)
+	Cleric(IRace* race) : IClass(race)
 	{
-        m_hitPointMod = 10;
-        m_ArmorClassMod = 10;
-        m_HitBonusMod = 2;
-        HP = 150;
-        AC = 20;
+	//	m_hitPointMod = 10;
+	//	m_ArmorClassMod = 10;
+	//	m_HitBonusMod = 2;
+		m_HP = 150;
+		m_AC = 10;
+		m_Damage = 20;
 	}
 
-    ~Clerics() {}
+	~Cleric() {}
 
-	virtual int GetHullPoints() override
+	virtual int GetHP() override
 	{
-		int retVal = m_hull + m_race->GetHullPointMods();
+		int retVal = m_HP + m_race->GetHPMod();
 		return retVal;
 	}
 
-private :
-    Clerics();
+	virtual int GetAC() override
+	{
+		int retVal = m_AC + m_race->GetACMod();
+		return retVal;
+	}
+
+	virtual int GetHitBonus() override
+	{
+		int retVal = m_hitBonus + m_race->GetHitBonusMod();
+		return retVal;
+	}
+
+private:
+	Cleric();
 
 };
-
