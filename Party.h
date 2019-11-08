@@ -18,4 +18,5 @@ private:
 	std::vector<IClass> m_party;
 	IClass m_member;
 };
+//#include "Party.cpp"
 #endif // !PARTY_

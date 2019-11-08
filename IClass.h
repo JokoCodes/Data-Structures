@@ -1,6 +1,10 @@
 #pragma once
 
 #include "IRace.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
 class IClass {
 
 public:
@@ -13,6 +17,8 @@ public:
 	virtual int GetHP() = 0;
 	virtual int GetAC() = 0;
 	virtual int GetHitBonus() = 0;
+	virtual int GetDamage() = 0;
+	virtual void Attack(vector<IClass*> defendingParty, int choice1, vector<IClass*> attackingParty, int choice2);
 	virtual ~IClass() {}
 
 protected:

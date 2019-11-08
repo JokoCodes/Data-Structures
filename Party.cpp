@@ -1,5 +1,8 @@
 #include "Party.h"
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 template<class IClass>
 

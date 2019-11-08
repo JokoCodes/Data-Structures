@@ -13,7 +13,7 @@ public:
 	{
 		//	m_hitPointMod = 10;
 		//	m_ArmorClassMod = 10;
-		//	m_HitBonusMod = 2;
+		//  m_HitBonusMod = 2;
 		m_HP = 200;
 		m_AC = 20;
 		m_Damage = 20;
@@ -36,6 +36,12 @@ public:
 	virtual int GetHitBonus() override
 	{
 		int retVal = m_hitBonus + m_race->GetHitBonusMod();
+		return retVal;
+	}
+
+	virtual int GetDamage() override
+	{
+		int retVal = m_Damage;
 		return retVal;
 	}
 

@@ -4,7 +4,8 @@
 class Human : IRace {
 
 public:
-	Human() : IRace(-1, 0, 2) {
+	// m_HitBonusMod = 2;
+	Human() : IRace(-1, 0, 7) {
 
 	}
 	virtual ~Human() {}

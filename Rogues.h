@@ -11,9 +11,7 @@ public:
 
 	Rogue(IRace* race) : IClass(race)
 	{
-		//	m_hitPointMod = 10;
-		//	m_ArmorClassMod = 10;
-		//	m_HitBonusMod = 2;
+
 		m_HP = 150;
 		m_AC = 10;
 		m_Damage = 20;
@@ -39,6 +37,11 @@ public:
 		return retVal;
 	}
 
+	virtual int GetDamage() override
+	{
+		int retVal = m_Damage;
+		return retVal;
+	}
 private:
 	Rogue();
 

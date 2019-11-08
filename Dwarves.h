@@ -4,7 +4,7 @@
 class Dwarf : IRace {
 
 public:
-	Dwarf() : IRace(-1, 0, 2) {
+	Dwarf() : IRace(-15, 0, 2) {
 
 	}
 	virtual ~Dwarf() {}
