@@ -6,8 +6,10 @@ using namespace std;
 
 int main()
 {
+    //creating the queue
     priorityQueue firstQueue;
 
+    //inserting the items
     firstQueue.Insert();
     firstQueue.Insert();
     firstQueue.Insert();
@@ -21,6 +23,10 @@ int main()
 
 
     firstQueue.PrintQueue();
+
+    firstQueue.Remove();
+
+
 
     return 0;
 }

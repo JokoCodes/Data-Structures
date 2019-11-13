@@ -10,20 +10,20 @@ class priorityQueue {
 
 public:
 
-    //Initializes the size of the array to 0
-    priorityQueue(){
 
+    priorityQueue(){
+    //Do something
     }
 
     ~priorityQueue(){
-
+    //Do something
     }
 
     void Insert(){
 
     int ele;
     int priority;
-    if(top == 0 && rear == Size-1){
+    if(top == 0 && rear == Size-1){ //if there is no overflow then proceed to add item
         cout<< "\n List is full";
     }
     else{
@@ -32,7 +32,7 @@ public:
     cout<<"\t What is the priority of the item? : ";
     cin>>priority;
 
-    if(top == -1){
+    if(top == -1){ //initializes the first item being added
         top = 0;
         rear = 0;
         queueData[rear] = ele;
@@ -42,6 +42,7 @@ public:
         for(int i= top; i <= rear; i++){
             queueData[i-top] = queueData[i];
             queuePriority[i-top] = queuePriority[i];
+        }
             rear = rear-top;
             top = 0;
 
@@ -58,45 +59,34 @@ public:
             rear++;
         }
 
-        }
+
 
 
     }
     else{
-        for(int i = rear; i>= top; i--){
-            if(priority > queuePriority[i]){
+            int i;
+        for(i = rear; i>= top; i--){
+            if(priority > queuePriority[i]){ //checks item if priority is higher than the previous item
                 queueData[i+1] = queueData[i];
                 queuePriority[i+1] = queuePriority[i];
             }
             else{
-                break;
+                break; //leaves loop after confirming that the item will still be at the right spot based on its priority
             }
-            queueData[i+1] = ele;
-            queuePriority[i+1] = priority;
-            rear++;
         }
+    //adding the item to the correct location
+        queueData[i+1] = ele;
+        queuePriority[i+1] = priority;
+        rear++;
     }
     }
 
-
-    /*
-    for(int i=0; i <= 500; i++){
-
-        if(queueData[i] == 0){
-            queueData[i] = data;
-        }
-        else if(data > queueData[i]){
-            queueData[i+1] == data;
-
-        }
-
-        }*/
     }
 
 
     void Remove(){
 
-    if(top == -1){
+    if(top == -1){ //checks to see that there is no underflow
         cout<<"\n List is empty";
     }
     else{
@@ -115,7 +105,7 @@ public:
     void PrintQueue(){
 
     cout<< "\n Priority Queue: ";
-    for(int j=0; j< Size-1; j++){
+    for(int j=0; j< Size; j++){ //prints each item in the list
         cout<< queueData[j] << " ";
     }
      cout<< endl;
