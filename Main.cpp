@@ -31,7 +31,7 @@ int main()
 			cout << "Press 5 to find the in edges of a vertex." << endl;
 			cout << "Press 6 to print out the adjacency matrix." << endl;
 			cout << "Press 7 to quit." << endl;
-			cout << "Option: ";
+			cout << "Option ";
 			cin >> userchoice;
 			cout << endl;
 		}
@@ -63,15 +63,19 @@ int main()
 			break;
 			
 		case 4: // Find out edges of the vertex
-
+			cout << "Pick a valid vertex: ";
+			cin >> vertex1;
+			G.OutEdges(x, vertex1);
 			break;
 
 		case 5: //Find the in edges of the vertex
-
+			cout << "Pick a valid vertex: ";
+			cin >> vertex1;
+			G.InEdges(x, vertex1);
 			break;
 
-		case 6: //Print out the adjacency matrix (currently just the list of each)
-			G.PrintGraph(x, 5);
+		case 6: //Print out the adjacency list and matrix 
+			G.PrintGraph(x);
 			break;
 
 		case 7://exit program
