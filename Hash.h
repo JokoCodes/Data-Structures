@@ -7,13 +7,13 @@ using namespace std;
 struct Node {
 	int value;
 	//Node* next;
+	bool operator== (const Node ptr) const;
 };
 
 class Hash {
 public:
 	Hash();
 	Hash(int num);
-	int key();
 	void AddItem(int item);
 	Node* RemoveItem(int item);
 	Node* GetItem(int item);
